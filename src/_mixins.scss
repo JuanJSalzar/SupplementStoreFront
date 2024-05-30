@@ -1,0 +1,22 @@
+@mixin d-flex($direction, $justify, $align)
+  // lo que se recibe es el valor de las variables
+ {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin main-style {
+  width: 100%;
+  @include d-flex(
+    column,
+    flex-start,
+    center
+  ); // se llama al mixin d-flex y se le pasan los valores de las variables
+}
+
+.button-separator {
+  display: flex;
+  gap: 1rem;
+}

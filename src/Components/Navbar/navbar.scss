@@ -1,0 +1,84 @@
+@import "../../mixins.scss";
+
+.navbar {
+  width: 100%;
+  height: 60px;
+  background-color: #0f0203;
+  color: white;
+  padding: 0 3rem;
+  @include d-flex(row, space-between, center);
+
+  .brand {
+    a {
+      color: #c2303a;
+      text-decoration: none;
+    }
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .menu {
+    flex: 1;
+    margin-left: 2rem;
+
+    ul {
+      @include d-flex(row, flex-start, center);
+      gap: 1rem;
+
+      .close {
+        display: none;
+      }
+
+      li {
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    .logo {
+      display: block;
+      margin-left: 1rem;
+      cursor: pointer;
+    }
+
+    .menu {
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      background-color: #0f0203;
+      position: fixed;
+      left: -100vw;
+      top: 0;
+      z-index: 3;
+      transition: all 0.3s linear;
+
+      &.open {
+        left: 0;
+      }
+
+      ul {
+        @include d-flex(column, center, center);
+        height: 100%;
+        gap: 3rem;
+        position: relative;
+
+        .close {
+          display: block;
+          position: absolute;
+          top: 1rem;
+          right: 2rem;
+          cursor: pointer;
+          font-size: 30px;
+        }
+      }
+    }
+  }
+}

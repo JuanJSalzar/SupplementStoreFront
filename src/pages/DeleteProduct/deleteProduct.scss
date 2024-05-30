@@ -1,0 +1,11 @@
+@import "../../mixins.scss";
+
+.delete-Product {
+  @include main-style();
+  gap: 2rem;
+  margin-top: 5rem;
+  h4 {
+    color: #b90005;
+    text-align: center;
+  }
+}
